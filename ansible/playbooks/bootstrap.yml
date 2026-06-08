@@ -1,0 +1,36 @@
+- name: Normalize Bobcat homelab state
+  hosts: Bobcat
+  become: true
+
+  vars:
+    homelab_user: jackson
+    repo_url: "https://github.com/JacksonTaylor2003/Homelab.git"
+    repo_path: /srv/git/homelab
+
+  tasks:
+
+    - name: Ensure base directories exist
+      file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ homelab_user }}"
+        group: "{{ homelab_user }}"
+        mode: "0755"
+      loop:
+        - /srv/git
+        - /srv/docker
+        - /srv/data
+        - /mnt/media
+
+    - name: Ensure user is in docker group
+      user:
+        name: "{{ homelab_user }}"
+        groups: docker
+        append: yes
+
+    - name: Clone or update homelab repo
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ repo_path }}"
+        update: yes
+        force: yes
