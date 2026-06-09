@@ -1,5 +1,11 @@
 # Host Setup
 
+## Clone Repository
+
+```bash
+sudo git clone <repository-url> /opt/homelab-repo
+```
+
 ## Bobcat
 
 ### Create application directories
@@ -107,3 +113,46 @@ sudo chown 1000:1000 \
   /opt/homelab/monitoring/alertmanager.yml \
   /opt/homelab/monitoring/loki-config.yml
 ```
+
+## Create Runtime Configuration Files
+
+# Bobcat
+
+cp /opt/homelab-repo/stacks/media/.env.example \
+   /opt/homelab/media/.env
+
+cp /opt/homelab-repo/stacks/seafile/.env.example \
+   /opt/homelab/seafile/.env
+
+cp /opt/homelab-repo/stacks/vikunja/.env.example \
+   /opt/homelab/vikunja/.env
+
+cp /opt/homelab-repo/stacks/minecraft/.env.example \
+   /opt/homelab/minecraft/.env
+
+
+# Anole
+
+cp /opt/homelab-repo/stacks/homer/.env.example \
+   /opt/homelab/homer/.env
+
+cp /opt/homelab-repo/stacks/grafana/.env.example \
+   /opt/homelab/grafana/.env
+
+
+# Hoverfly
+
+cp /opt/homelab-repo/stacks/monitoring/.env.example \
+   /opt/homelab/monitoring/.env
+
+## Edit Runtime Configuration Files
+
+Review every `.env` file and replace:
+
+- Hostnames
+- Email addresses
+- Passwords
+- API keys
+- Secrets
+
+before deploying any stack.
