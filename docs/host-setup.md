@@ -74,3 +74,36 @@ sudo chown 1000:1000 /opt/homelab/homer/assets/config.yml
 sudo mkdir -p /opt/homelab/minecraft/data
 sudo chown -R 1000:1000 /opt/homelab/minecraft
 ```
+### Create Monitorting directories
+
+# Anole
+```bash
+sudo mkdir -p /opt/homelab/grafana/data
+sudo chown -R 472:472 /opt/homelab/grafana
+```
+
+# Hoverfly
+```bash
+sudo mkdir -p \
+  /opt/homelab/monitoring/prometheus \
+  /opt/homelab/monitoring/alertmanager \
+  /opt/homelab/monitoring/loki \
+  /opt/homelab/monitoring/uptime-kuma
+
+sudo chown -R 1000:1000 /opt/homelab/monitoring
+```
+
+### Create Monitoring configs
+
+```bash
+sudo cp stacks/monitoring/prometheus.example.yml /opt/homelab/monitoring/prometheus.yml
+sudo cp stacks/monitoring/alert-rules.example.yml /opt/homelab/monitoring/alert-rules.yml
+sudo cp stacks/monitoring/alertmanager.example.yml /opt/homelab/monitoring/alertmanager.yml
+sudo cp stacks/monitoring/loki-config.example.yml /opt/homelab/monitoring/loki-config.yml
+
+sudo chown 1000:1000 \
+  /opt/homelab/monitoring/prometheus.yml \
+  /opt/homelab/monitoring/alert-rules.yml \
+  /opt/homelab/monitoring/alertmanager.yml \
+  /opt/homelab/monitoring/loki-config.yml
+```

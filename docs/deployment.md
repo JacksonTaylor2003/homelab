@@ -15,6 +15,7 @@ Stacks:
 
 - gitea
 - homer
+- grafana
 
 ## Hoverfly
 
@@ -40,6 +41,22 @@ docker compose -f stacks/gitea/compose.yml up -d
 
 docker compose -f stacks/homer/compose.yml up -d
 
+docker compose -f ~/homelab/stacks/grafana/compose.yml up -d
+
 ### Hoverfly
 
 docker compose -f stacks/monitoring/compose.yml up -d
+
+### Shared Host Monitoring
+
+The `node-exporter` stack should run on every host:
+
+- Bobcat
+- Anole
+- Hoverfly
+
+Deployment command:
+
+```bash
+docker compose -f stacks/node-exporter/compose.yml up -d
+```
