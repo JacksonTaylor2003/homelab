@@ -67,3 +67,10 @@ sudo chown -R 1000:1000 /opt/homelab/homer
 sudo cp stacks/homer/config.example.yml /opt/homelab/homer/assets/config.yml
 sudo chown 1000:1000 /opt/homelab/homer/assets/config.yml
 ```
+
+### Create Minecraft directories
+
+```bash
+sudo mkdir -p /opt/homelab/minecraft/data
+sudo chown -R 1000:1000 /opt/homelab/minecraft
+```
