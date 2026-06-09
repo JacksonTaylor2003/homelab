@@ -1,0 +1,42 @@
+services:
+  vikunja-db:
+    image: postgres:16-alpine
+    container_name: vikunja-db
+    env_file:
+      - /opt/homelab/vikunja/.env
+    environment:
+      POSTGRES_DB: vikunja
+      POSTGRES_USER: vikunja
+      POSTGRES_PASSWORD: ${VIKUNJA_DATABASE_PASSWORD}
+    volumes:
+      - ${CONFIG_PATH}/db:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - vikunja
+
+  vikunja:
+    image: vikunja/vikunja:latest
+    container_name: vikunja
+    env_file:
+      - /opt/homelab/vikunja/.env
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: ${VIKUNJA_SERVICE_PUBLICURL}
+      VIKUNJA_DATABASE_TYPE: postgres
+      VIKUNJA_DATABASE_HOST: vikunja-db
+      VIKUNJA_DATABASE_DATABASE: vikunja
+      VIKUNJA_DATABASE_USER: vikunja
+      VIKUNJA_DATABASE_PASSWORD: ${VIKUNJA_DATABASE_PASSWORD}
+      VIKUNJA_FILES_BASEPATH: /app/vikunja/files
+    volumes:
+      - ${CONFIG_PATH}/files:/app/vikunja/files
+    ports:
+      - "3456:3456"
+    depends_on:
+      - vikunja-db
+    restart: unless-stopped
+    networks:
+      - vikunja
+
+networks:
+  vikunja:
+    name: vikunja

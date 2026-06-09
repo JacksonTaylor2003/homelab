@@ -43,3 +43,27 @@ sudo chown -R 1000:1000 \
   /opt/homelab/seafile \
   /mnt/seafile-data
 ```
+
+### Create Vikunja directories
+
+```bash
+sudo mkdir -p \
+  /opt/homelab/vikunja/db \
+  /opt/homelab/vikunja/files
+
+sudo chown -R 1000:1000 /opt/homelab/vikunja
+```
+
+### Create Homer directories
+
+```bash
+sudo mkdir -p /opt/homelab/homer/assets
+sudo chown -R 1000:1000 /opt/homelab/homer
+```
+
+### Create Homer config
+
+```bash
+sudo cp stacks/homer/config.example.yml /opt/homelab/homer/assets/config.yml
+sudo chown 1000:1000 /opt/homelab/homer/assets/config.yml
+```

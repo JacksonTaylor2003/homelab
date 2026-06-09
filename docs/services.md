@@ -72,6 +72,8 @@ Owns:
 
 ### `stacks/gitea`
 
+Gitea is deferred. GitHub is currently used as the source-of-truth repository.
+
 Runs on Anole.
 
 Owns:
