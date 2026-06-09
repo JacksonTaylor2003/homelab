@@ -1,0 +1,90 @@
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    env_file:
+      - /opt/homelab/media/.env
+    volumes:
+      - ${CONFIG_PATH}/jellyfin:/config
+      - ${MEDIA_PATH}:/media
+    ports:
+      - "8096:8096"
+    restart: unless-stopped
+    networks:
+      - media
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    env_file:
+      - /opt/homelab/media/.env
+    volumes:
+      - ${CONFIG_PATH}/sonarr:/config
+      - ${MEDIA_PATH}/tv:/tv
+      - ${DOWNLOADS_PATH}:/downloads
+    ports:
+      - "8989:8989"
+    restart: unless-stopped
+    networks:
+      - media
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    env_file:
+      - /opt/homelab/media/.env
+    volumes:
+      - ${CONFIG_PATH}/radarr:/config
+      - ${MEDIA_PATH}/movies:/movies
+      - ${DOWNLOADS_PATH}:/downloads
+    ports:
+      - "7878:7878"
+    restart: unless-stopped
+    networks:
+      - media
+
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    env_file:
+      - /opt/homelab/media/.env
+    volumes:
+      - ${CONFIG_PATH}/lidarr:/config
+      - ${MEDIA_PATH}/music:/music
+      - ${DOWNLOADS_PATH}:/downloads
+    ports:
+      - "8686:8686"
+    restart: unless-stopped
+    networks:
+      - media
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    env_file:
+      - /opt/homelab/media/.env
+    volumes:
+      - ${CONFIG_PATH}/prowlarr:/config
+    ports:
+      - "9696:9696"
+    restart: unless-stopped
+    networks:
+      - media
+
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    env_file:
+      - /opt/homelab/media/.env
+    volumes:
+      - ${CONFIG_PATH}/sabnzbd:/config
+      - ${DOWNLOADS_PATH}:/downloads
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    networks:
+      - media
+
+networks:
+  media:
+    name: media
