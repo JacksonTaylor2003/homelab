@@ -1,0 +1,52 @@
+services:
+  seafile-db:
+    image: mariadb:10.11
+    container_name: seafile-db
+    env_file:
+      - /opt/homelab/seafile/.env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${SEAFILE_DB_ROOT_PASSWORD}
+      MYSQL_LOG_CONSOLE: "true"
+      MARIADB_AUTO_UPGRADE: "1"
+    volumes:
+      - ${CONFIG_PATH}/db:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - seafile
+
+  seafile-cache:
+    image: memcached:1.6.18
+    container_name: seafile-cache
+    entrypoint: memcached -m 256
+    restart: unless-stopped
+    networks:
+      - seafile
+
+  seafile:
+    image: seafileltd/seafile-mc:11.0-latest
+    container_name: seafile
+    env_file:
+      - /opt/homelab/seafile/.env
+    environment:
+      DB_HOST: seafile-db
+      DB_ROOT_PASSWD: ${SEAFILE_DB_ROOT_PASSWORD}
+      TIME_ZONE: ${TZ}
+      SEAFILE_ADMIN_EMAIL: ${SEAFILE_ADMIN_EMAIL}
+      SEAFILE_ADMIN_PASSWORD: ${SEAFILE_ADMIN_PASSWORD}
+      SEAFILE_SERVER_HOSTNAME: ${SEAFILE_SERVER_HOSTNAME}
+      SEAFILE_SERVER_LETSENCRYPT: "false"
+    volumes:
+      - ${CONFIG_PATH}/shared:/shared
+      - ${SEAFILE_DATA_PATH}:/seafile-data
+    ports:
+      - "8082:80"
+    depends_on:
+      - seafile-db
+      - seafile-cache
+    restart: unless-stopped
+    networks:
+      - seafile
+
+networks:
+  seafile:
+    name: seafile

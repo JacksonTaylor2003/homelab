@@ -30,3 +30,16 @@ sudo chown -R 1000:1000 \
   /mnt/downloads \
   /mnt/seafile-data
 ```
+
+### Create Seafile directories
+
+```bash
+sudo mkdir -p \
+  /opt/homelab/seafile/db \
+  /opt/homelab/seafile/shared \
+  /mnt/seafile-data
+
+sudo chown -R 1000:1000 \
+  /opt/homelab/seafile \
+  /mnt/seafile-data
+```
