@@ -82,7 +82,7 @@ Owns:
 - Gitea database
 - Gitea config
 
-### `stacks/homer`
+### `stacks/homarr`
 
 Runs on Anole.
 

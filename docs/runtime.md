@@ -21,6 +21,6 @@ examples:
 /opt/homelab/vikunja
 /opt/homelab/minecraft
 /opt/homelab/gitea
-/opt/homelab/homer
+/opt/homelab/homarr
 /opt/homelab/monitoring
 ```

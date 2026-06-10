@@ -38,7 +38,7 @@
 - [ ] Install Debian on Anole
 - [ ] Install Docker
 - [ ] Clone repository
-- [ ] Deploy Homer
+- [ ] Deploy Homarr
 - [ ] Deploy Grafana
 
 ## Phase 5 - Monitoring

@@ -39,7 +39,7 @@ docker compose -f stacks/minecraft/compose.yml up -d
 
 docker compose -f stacks/gitea/compose.yml up -d
 
-docker compose -f stacks/homer/compose.yml up -d
+docker compose -f stacks/homarr/compose.yml up -d
 
 docker compose -f ~/homelab/stacks/grafana/compose.yml up -d
 

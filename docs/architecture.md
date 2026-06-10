@@ -42,8 +42,8 @@ Anole is the control node.
 
 Responsibilities:
 
-- Gitea
-- Homer
+- Gitea (in the future)
+- Homarr
 - Grafana
 
 ### Hoverfly

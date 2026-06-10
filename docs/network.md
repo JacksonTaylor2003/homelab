@@ -39,6 +39,6 @@ Initial policy:
 | Seafile | `seafile.home.arpa` | Bobcat |
 | Vikunja | `vikunja.home.arpa` | Bobcat |
 | Gitea | `gitea.home.arpa` | Anole |
-| Homer | `homer.home.arpa` | Anole |
+| Homarr | `homarr.home.arpa` | Anole |
 | Grafana | `grafana.home.arpa` | Anole |
 | Prometheus | `prometheus.home.arpa` | Hoverfly |

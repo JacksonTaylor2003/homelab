@@ -60,35 +60,36 @@ sudo mkdir -p \
 sudo chown -R 1000:1000 /opt/homelab/vikunja
 ```
 
-### Create Homer directories
-
-```bash
-sudo mkdir -p /opt/homelab/homer/assets
-sudo chown -R 1000:1000 /opt/homelab/homer
-```
-
-### Create Homer config
-
-```bash
-sudo cp stacks/homer/config.example.yml /opt/homelab/homer/assets/config.yml
-sudo chown 1000:1000 /opt/homelab/homer/assets/config.yml
-```
-
 ### Create Minecraft directories
 
 ```bash
 sudo mkdir -p /opt/homelab/minecraft/data
 sudo chown -R 1000:1000 /opt/homelab/minecraft
 ```
-### Create Monitorting directories
 
-# Anole
+## Anole
+
+### Create Homarr directories
+
+
+### Create Homarr directories
+
+```bash
+sudo mkdir -p /opt/homelab/homarr
+sudo chown -R 1000:1000 /opt/homelab/homarr
+```
+
+## Monitoring
+
+### Create Monitoring directories
+
+## Anole
 ```bash
 sudo mkdir -p /opt/homelab/grafana/data
 sudo chown -R 472:472 /opt/homelab/grafana
 ```
 
-# Hoverfly
+## Hoverfly
 ```bash
 sudo mkdir -p \
   /opt/homelab/monitoring/prometheus \
@@ -116,7 +117,7 @@ sudo chown 1000:1000 \
 
 ## Create Runtime Configuration Files
 
-# Bobcat
+## Bobcat
 
 cp /opt/homelab-repo/stacks/media/.env.example \
    /opt/homelab/media/.env
@@ -131,16 +132,16 @@ cp /opt/homelab-repo/stacks/minecraft/.env.example \
    /opt/homelab/minecraft/.env
 
 
-# Anole
+## Anole
 
-cp /opt/homelab-repo/stacks/homer/.env.example \
-   /opt/homelab/homer/.env
+cp /opt/homelab-repo/stacks/homarr/.env.example \
+   /opt/homelab/homarr/.env
 
 cp /opt/homelab-repo/stacks/grafana/.env.example \
    /opt/homelab/grafana/.env
 
 
-# Hoverfly
+## Hoverfly
 
 cp /opt/homelab-repo/stacks/monitoring/.env.example \
    /opt/homelab/monitoring/.env
