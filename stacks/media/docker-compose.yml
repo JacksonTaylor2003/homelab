@@ -71,6 +71,40 @@ services:
     networks:
       - media
 
+  seerr:
+    image: ghcr.io/seerr-team/seerr:latest
+    init: true
+    container_name: seerr
+    restart: unless-stopped
+    environment:
+      - LOG_LEVEL=${SEERR_LOG_LEVEL}
+      - TZ=${TZ}
+    ports:
+      - "5055:5055"
+    volumes:
+      - /opt/homelab/media/seerr:/app/config
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:5055/api/v1/settings/public || exit 1
+      start_period: 20s
+      timeout: 3s
+      interval: 15s
+      retries: 3
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    restart: unless-stopped
+    ports:
+      - "6767:6767"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /opt/homelab/media/bazarr:/config
+      - /mnt/media/movies:/movies
+      - /mnt/media/tv:/tv
+
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd

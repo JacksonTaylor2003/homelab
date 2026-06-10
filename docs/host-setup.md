@@ -12,7 +12,7 @@ sudo git clone <repository-url> /opt/homelab-repo
 
 ```bash
 sudo mkdir -p \
-  /opt/homelab/media/{jellyfin,sonarr,radarr,lidarr,prowlarr,sabnzbd} \
+  /opt/homelab/media/{jellyfin,sonarr,radarr,lidarr,prowlarr,seerr,bazarr,sabnzbd} \
   /opt/homelab/seafile \
   /opt/homelab/vikunja \
   /opt/homelab/minecraft
