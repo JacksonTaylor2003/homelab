@@ -11,4 +11,4 @@ services:
       - TZ=${TZ}
 
     volumes:
-      - ./appdata:/appdata
+      - /opt/homelab/homarr:/appdata

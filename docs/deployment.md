@@ -13,8 +13,8 @@ Stacks:
 
 Stacks:
 
-- gitea
-- homer
+- gitea (later)
+- homarr
 - grafana
 
 ## Hoverfly

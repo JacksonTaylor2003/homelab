@@ -7,13 +7,16 @@
 | Jellyfin | Bobcat | media | Media server | No |
 | Sonarr | Bobcat | media | TV automation | No |
 | Radarr | Bobcat | media | Movie automation | No |
+| Lidarr | Bobcat | media | Music automation | No |
+| Bazarr | Bobcat | media | Subtitles automation | No |
+| Seerr | Bobcat | media | Request automation | No |
 | Prowlarr | Bobcat | media | Indexer management | No |
-| qBittorrent | Bobcat | media | Download client | No |
+| SABnzbd | Bobcat | media | Download client | No |
 | Seafile | Bobcat | seafile | File sync/storage | No |
 | Vikunja | Bobcat | vikunja | Task management | No |
 | Minecraft | Bobcat | minecraft | Game server | Yes, through playit.gg |
 | Gitea | Anole | gitea | Git hosting | No |
-| Homer | Anole | homer | Dashboard | No |
+| Homarr | Anole | homer | Dashboard | No |
 | Grafana | Anole | monitoring | Metrics dashboard | No |
 | Prometheus | Hoverfly | monitoring | Metrics collection | No |
 | Alertmanager | Hoverfly | monitoring | Alert routing | No |

@@ -71,9 +71,6 @@ sudo chown -R 1000:1000 /opt/homelab/minecraft
 
 ### Create Homarr directories
 
-
-### Create Homarr directories
-
 ```bash
 sudo mkdir -p /opt/homelab/homarr
 sudo chown -R 1000:1000 /opt/homelab/homarr
@@ -119,6 +116,7 @@ sudo chown 1000:1000 \
 
 ## Bobcat
 
+```bash
 cp /opt/homelab-repo/stacks/media/.env.example \
    /opt/homelab/media/.env
 
@@ -130,7 +128,7 @@ cp /opt/homelab-repo/stacks/vikunja/.env.example \
 
 cp /opt/homelab-repo/stacks/minecraft/.env.example \
    /opt/homelab/minecraft/.env
-
+```
 
 ## Anole
 
