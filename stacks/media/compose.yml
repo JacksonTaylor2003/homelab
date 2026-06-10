@@ -3,7 +3,7 @@ services:
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: jellyfin
     env_file:
-      - /opt/homelab/media/.env
+      - /opt/homelab-repo/stacks/media/.env
     volumes:
       - ${CONFIG_PATH}/jellyfin:/config
       - ${MEDIA_PATH}:/media
@@ -17,7 +17,7 @@ services:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     env_file:
-      - /opt/homelab/media/.env
+      - /opt/homelab-repo/stacks/media/.env
     volumes:
       - ${CONFIG_PATH}/sonarr:/config
       - ${MEDIA_PATH}/tv:/tv
@@ -32,7 +32,7 @@ services:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
     env_file:
-      - /opt/homelab/media/.env
+      - /opt/homelab-repo/stacks/media/.env
     volumes:
       - ${CONFIG_PATH}/radarr:/config
       - ${MEDIA_PATH}/movies:/movies
@@ -47,7 +47,7 @@ services:
     image: lscr.io/linuxserver/lidarr:latest
     container_name: lidarr
     env_file:
-      - /opt/homelab/media/.env
+      - /opt/homelab-repo/stacks/media/.env
     volumes:
       - ${CONFIG_PATH}/lidarr:/config
       - ${MEDIA_PATH}/music:/music
@@ -62,7 +62,7 @@ services:
     image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
     env_file:
-      - /opt/homelab/media/.env
+      - /opt/homelab-repo/stacks/media/.env
     volumes:
       - ${CONFIG_PATH}/prowlarr:/config
     ports:
@@ -76,13 +76,15 @@ services:
     init: true
     container_name: seerr
     restart: unless-stopped
+    networks:
+      - media
     environment:
       - LOG_LEVEL=${SEERR_LOG_LEVEL}
       - TZ=${TZ}
     ports:
       - "5055:5055"
     volumes:
-      - /opt/homelab/media/seerr:/app/config
+      - /srv/docker/media/seerr:/app/config
     healthcheck:
       test: wget --no-verbose --tries=1 --spider http://localhost:5055/api/v1/settings/public || exit 1
       start_period: 20s
@@ -94,6 +96,8 @@ services:
     image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr
     restart: unless-stopped
+    networks:
+      - media
     ports:
       - "6767:6767"
     environment:
@@ -101,15 +105,15 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - /opt/homelab/media/bazarr:/config
-      - /mnt/media/movies:/movies
-      - /mnt/media/tv:/tv
+      - /srv/docker/media/bazarr:/config
+      - /srv/media/movies:/movies
+      - /srv/media/tv:/tv
 
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd
     env_file:
-      - /opt/homelab/media/.env
+      - /opt/homelab-repo/stacks/media/.env
     volumes:
       - ${CONFIG_PATH}/sabnzbd:/config
       - ${DOWNLOADS_PATH}:/downloads

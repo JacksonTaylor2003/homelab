@@ -7,6 +7,8 @@ sudo mkdir -p /opt/homelab-repo
 sudo chown $USER:$USER /opt/homelab-repo
 
 git clone https://github.com/JacksonTaylor2003/Homelab.git /opt/homelab-repo
+
+git clone git@github.com:JacksonTaylor2003/Homelab.git homelab-repo
 ```
 
 ## Bobcat

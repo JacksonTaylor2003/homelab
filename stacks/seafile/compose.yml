@@ -3,7 +3,7 @@ services:
     image: mariadb:10.11
     container_name: seafile-db
     env_file:
-      - /opt/homelab/seafile/.env
+      - /opt/homelab-repo/stacks/seafile/.env
     environment:
       MYSQL_ROOT_PASSWORD: ${SEAFILE_DB_ROOT_PASSWORD}
       MYSQL_LOG_CONSOLE: "true"
@@ -26,7 +26,7 @@ services:
     image: seafileltd/seafile-mc:11.0-latest
     container_name: seafile
     env_file:
-      - /opt/homelab/seafile/.env
+      - /opt/homelab-repo/stacks/seafile/.env
     environment:
       DB_HOST: seafile-db
       DB_ROOT_PASSWD: ${SEAFILE_DB_ROOT_PASSWORD}

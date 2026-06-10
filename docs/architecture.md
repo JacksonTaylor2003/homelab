@@ -37,8 +37,8 @@ Responsibilities:
 All Bobcat services run in Docker.
 
 /opt/homelab-repo = blueprint
-/opt/homelab      = runtime app data
-/mnt              = large persistent storage
+/srv/docker = runtime app data
+/srv/media = large persistent storage
 
 ### Anole
 

@@ -3,7 +3,7 @@ services:
     image: itzg/minecraft-server:latest
     container_name: minecraft
     env_file:
-      - /opt/homelab/minecraft/.env
+      - /opt/homelab-repo/stacks/minecraft/.env
     environment:
       EULA: "TRUE"
       TYPE: PAPER
