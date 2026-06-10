@@ -3,10 +3,17 @@
 ## Clone Repository
 
 ```bash
-sudo git clone <repository-url> /opt/homelab-repo
+sudo mkdir -p /opt/homelab-repo
+sudo chown $USER:$USER /opt/homelab-repo
+
+git clone https://github.com/JacksonTaylor2003/Homelab.git /opt/homelab-repo
 ```
 
 ## Bobcat
+
+- /opt/homelab-repo = blueprint
+- /opt/homelab      = runtime app data
+- /mnt              = large persistent storage
 
 ### Create application directories
 
@@ -132,17 +139,20 @@ cp /opt/homelab-repo/stacks/minecraft/.env.example \
 
 ## Anole
 
+```bash
 cp /opt/homelab-repo/stacks/homarr/.env.example \
    /opt/homelab/homarr/.env
 
 cp /opt/homelab-repo/stacks/grafana/.env.example \
    /opt/homelab/grafana/.env
-
+```
 
 ## Hoverfly
 
+```bash
 cp /opt/homelab-repo/stacks/monitoring/.env.example \
    /opt/homelab/monitoring/.env
+```
 
 ## Edit Runtime Configuration Files
 

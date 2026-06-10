@@ -36,6 +36,10 @@ Responsibilities:
 
 All Bobcat services run in Docker.
 
+/opt/homelab-repo = blueprint
+/opt/homelab      = runtime app data
+/mnt              = large persistent storage
+
 ### Anole
 
 Anole is the control node.

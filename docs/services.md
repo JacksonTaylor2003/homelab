@@ -16,8 +16,8 @@
 | Vikunja | Bobcat | vikunja | Task management | No |
 | Minecraft | Bobcat | minecraft | Game server | Yes, through playit.gg |
 | Gitea | Anole | gitea | Git hosting | No |
-| Homarr | Anole | homer | Dashboard | No |
-| Grafana | Anole | monitoring | Metrics dashboard | No |
+| Homarr | Anole | homarr | Dashboard | No |
+| Grafana | Anole | grafana | Metrics dashboard | No |
 | Prometheus | Hoverfly | monitoring | Metrics collection | No |
 | Alertmanager | Hoverfly | monitoring | Alert routing | No |
 | Loki | Hoverfly | monitoring | Log aggregation | No |
@@ -35,6 +35,8 @@ Services:
 - Sonarr
 - Radarr
 - Lidarr
+- Bazarr
+- Seerr
 - Prowlarr
 - SABnzbd
 
