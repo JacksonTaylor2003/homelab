@@ -9,9 +9,11 @@ services:
       TYPE: PAPER
       VERSION: ${MINECRAFT_VERSION}
       MEMORY: ${MINECRAFT_MEMORY}
+      ENABLE_ROLLING_LOGS: "true"
+      CREATE_CONSOLE_IN_PIPE: "true"
       SERVER_NAME: ${MINECRAFT_SERVER_NAME}
       ONLINE_MODE: "TRUE"
-      ENABLE_WHITELIST: "TRUE"
+      ENABLE_WHITELIST: "FALSE"
     volumes:
       - ${CONFIG_PATH}/data:/data
     ports:
