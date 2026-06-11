@@ -16,4 +16,5 @@ services:
       - ${CONFIG_PATH}/data:/data
     ports:
       - "25565:25565"
+      - "19132:19132"
     restart: unless-stopped
