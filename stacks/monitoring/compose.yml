@@ -3,7 +3,7 @@ services:
     image: prom/prometheus:latest
     container_name: prometheus
     env_file:
-      - /opt/homelab/monitoring/.env
+      - /opt/homelab-repo/stacks/monitoring/.env
     volumes:
       - ${CONFIG_PATH}/prometheus:/prometheus
       - ${CONFIG_PATH}/prometheus.yml:/etc/prometheus/prometheus.yml:ro
