@@ -3,12 +3,9 @@ services:
     image: ghcr.io/homarr-labs/homarr:latest
     container_name: homarr
     restart: unless-stopped
-
+    env_file:
+      - .env
     ports:
       - "7575:7575"
-
-    environment:
-      - TZ=${TZ}
-
     volumes:
-      - /opt/homelab/homarr:/appdata
+      - ${CONFIG_PATH}:/appdata
