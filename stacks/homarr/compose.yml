@@ -3,6 +3,8 @@ services:
     image: ghcr.io/homarr-labs/homarr:latest
     container_name: homarr
     restart: unless-stopped
+    extra_hosts:
+      - "bobcat.internal:host-gateway"
     env_file:
       - .env
     ports:
