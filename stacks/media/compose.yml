@@ -106,8 +106,8 @@ services:
       - TZ=${TZ}
     volumes:
       - /srv/docker/media/bazarr:/config
-      - /srv/media/movies:/movies
-      - /srv/media/tv:/tv
+      - ${MEDIA_PATH}/movies:/movies
+      - ${MEDIA_PATH}/tv:/tv
 
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest

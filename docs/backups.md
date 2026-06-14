@@ -1,24 +1,132 @@
-# Backups
+# Storage Layout
 
-## Goal
+## Bobcat Storage
 
-Backups protect homelab data that cannot be easily recreated from the repository.
+### Internal NVMe (1 TB)
 
-The Git repository can recreate structure.
+Purpose: Active application data and configuration.
 
-Backups restore data.
-
-## Tools
-
-- restic
-- rclone
-
-## Backup targets
-
-### Bobcat
-
-Back up:
+Mounts:
 
 ```text
-/opt/homelab
-/mnt/seafile-data
+/srv/docker
+```
+
+Structure:
+
+```text
+/srv/docker
+├── homarr
+├── media
+├── minecraft
+├── seafile
+├── uptime-kuma
+└── vikunja
+```
+
+Contents:
+
+* Container configurations
+* Databases
+* Minecraft world data
+* Seafile data
+* Application state
+
+---
+
+### External Media HDD (6 TB)
+
+Mount point:
+
+```text
+/mnt/media
+```
+
+Purpose:
+
+* Media storage only
+
+Structure:
+
+```text
+/mnt/media
+├── downloads
+│   ├── complete
+│   └── incomplete
+├── movies
+├── music
+└── tv
+```
+
+---
+
+### External Backup SSD (256 GB)
+
+Mount point:
+
+```text
+/mnt/backups
+```
+
+Purpose:
+
+* Backup destination only
+
+Structure:
+
+```text
+/mnt/backups
+├── apps
+└── system
+```
+
+---
+
+## Backup Sources
+
+### Applications
+
+Source:
+
+```text
+/srv/docker
+```
+
+Destination:
+
+```text
+/mnt/backups/apps
+```
+
+Includes:
+
+* Homarr
+* Media stack configuration
+* Minecraft
+* Seafile
+* Uptime Kuma
+* Vikunja
+
+### System
+
+Sources:
+
+```text
+/opt/homelab-repo
+/etc
+```
+
+Destination:
+
+```text
+/mnt/backups/system
+```
+
+Includes:
+
+* Homelab repository
+* System configuration
+* Recovery documentation
+
+```
+```
