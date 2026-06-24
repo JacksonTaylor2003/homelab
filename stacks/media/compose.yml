@@ -12,6 +12,8 @@ services:
     restart: unless-stopped
     networks:
       - media
+    devices:
+      - /dev/dri:/dev/dri
 
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
