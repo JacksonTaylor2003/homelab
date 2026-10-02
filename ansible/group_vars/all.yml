@@ -1,5 +1,0 @@
-ansible_user: jackson
-ansible_python_interpreter: /usr/bin/python3
-
-homelab_repo_path: /opt/homelab-repo
-homelab_runtime_path: /opt/homelab
