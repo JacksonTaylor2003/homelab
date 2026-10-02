@@ -1,3 +1,4 @@
 secrets/
 stacks/**/.env
 *.env
+homelab.code-workspace
